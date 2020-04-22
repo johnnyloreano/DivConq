@@ -53,4 +53,23 @@ public class DivConq {
         return result;
     }
 
+    public static int maxVal1(int A[], int n) {  
+        int max = A[0];
+        for (int i = 1; i < n; i++) {  
+            if( A[i] > max ) 
+               max = A[i];
+        }
+        return max;
+    }
+
+    public static int maxVal2(int A[], int init, int end) {  
+        if (end - init <= 1)
+            return Math.max(A[init], A[end]);  
+        else {
+              int m = (init + end)/2;
+              int v1 = maxVal2(A,init,m);   
+              int v2 = maxVal2(A,m+1,end);  
+              return Math.max(v1,v2);
+             }
+    }
 }
